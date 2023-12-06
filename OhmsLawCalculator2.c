@@ -1,7 +1,10 @@
 #include <stdio.h>
 #include <math.h>
 
-void print_menu(void);
+void print_menu(void);//function to print the menu
+double calc_V_from_PnI(double P, double I);//function to perform V=P/I
+double calc_V_from_PnR(double P, double R);//function to perform V=sqrt(P*R)
+double calc_V_from_InR(double I, double R);//function to perform V=P/I
 
 int main(){
     print_menu();
