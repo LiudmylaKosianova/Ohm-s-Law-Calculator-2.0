@@ -4,7 +4,7 @@
 void print_menu(void);//function to print the menu
 double calc_V_from_PnI(double P, double I);//function to perform V=P/I
 double calc_V_from_PnR(double P, double R);//function to perform V=sqrt(P*R)
-double calc_V_from_InR(double I, double R);//function to perform V=P/I
+double calc_V_from_InR(double I, double R);//function to perform V=I*R
 
 int main(){
     int q = 0;
@@ -24,6 +24,7 @@ int main(){
             scanf(" %lf", &I);
             V = calc_V_from_PnI(P,I);
             printf("\n\tYour Voltage = %.3lf Volts", V);
+            break;
             case 2:
             printf("\n\tEnter P in Watts: ");
             scanf(" %lf", &P);
@@ -31,7 +32,22 @@ int main(){
             scanf(" %lf", &R);
             V = calc_V_from_PnR(P,R);
             printf("\n\tYour Voltage = %.3lf Volts", V);
-
+            break;
+            case 3:
+            printf("\n\tEnter I in Amps: ");
+            scanf(" %lf", &I);
+            printf("\tEnter R in Ohms: ");
+            scanf(" %lf", &R);
+            V = calc_V_from_InR(I,R);
+            printf("\n\tYour Voltage = %.3lf Volts", V);
+            break;
+            case 4:
+            printf("\n\tExiting...\n");
+            q = 4;
+            break;
+            default:
+            printf("\n\tYou didn't enter a valid choise, please try again...");
+            break;
         }
 
     }while(q != 4);
@@ -57,5 +73,10 @@ double calc_V_from_PnI(double P, double I){
 double calc_V_from_PnR(double P, double R){
     double V = sqrt(P*R);
     return V;
+}
+
+double calc_V_from_InR(double I, double R){
+    double V = I*R;
+    return V; 
 }
 
